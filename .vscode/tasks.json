@@ -6,7 +6,7 @@
         {
             "label": "ng serve",
             "type": "shell",
-            "command": "ng serve",
+            "command": "ng serve --port 4221",
             "presentation": {
                 "reveal": "always",
                 "panel": "new"
