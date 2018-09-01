@@ -1,0 +1,48 @@
+<div class="mat-elevation-z8">
+  <mat-toolbar>
+    <mat-toolbar-row>
+      <span>{{themeName}}</span>
+      <span class="spacer"></span>
+      <span>{{status}}</span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <div class="table-header">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+  </div>
+
+  <mat-table #table [dataSource]="dataSource" matSort>
+
+    <!-- Readability Column -->
+    <ng-container matColumnDef="readability">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Readability </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <app-readability-view [readability]="element.readability"></app-readability-view>
+      </mat-cell>
+    </ng-container>
+
+    <!-- Color Column -->
+    <ng-container matColumnDef="color">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Color </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <app-color-editor [(color)]="element.color" [backgroundColor]="element.backgroundColor"></app-color-editor>
+      </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    </ng-container>
+
+    <!-- Scope Column -->
+    <ng-container matColumnDef="scope">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Scope </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.scope | arrayToString}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>

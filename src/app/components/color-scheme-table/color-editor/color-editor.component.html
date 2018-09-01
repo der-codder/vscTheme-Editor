@@ -1,0 +1,10 @@
+<div class="button-row">
+  <button mat-icon-button color="primary">
+    <mat-icon (click)="darken()" matTooltip="darken()">brightness_7</mat-icon>
+  </button>
+  <input class="monospaced color-editor-input" [style.background-color]="backgroundColor" [style.color]="hexValue"
+      [value]="hexValue" (input)="changeColor($event)" (focus)="onInputFocus()" (blur)="onInputBlur()">
+  <button mat-icon-button color="primary">
+    <mat-icon (click)="lighten()" matTooltip="lighten()">brightness_5</mat-icon>
+  </button>
+</div>

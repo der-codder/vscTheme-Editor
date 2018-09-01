@@ -1,0 +1,14 @@
+input {
+  border-width: 0 0 1px 0;
+  border-bottom-color: rgba(0,0,0,.54);
+  padding: 3px 0;
+  width: 80px;
+  text-align: center;
+  vertical-align: middle;
+  outline: none;
+}
+
+input:focus {
+  border-bottom-color: #3f51b5;
+  border-width: 0 0 2px 0;
+}
