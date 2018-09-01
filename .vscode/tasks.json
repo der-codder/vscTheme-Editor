@@ -6,7 +6,7 @@
         {
             "label": "ng serve",
             "type": "shell",
-            "command": "ng serve --aot",
+            "command": "ng serve",
             "presentation": {
                 "reveal": "always",
                 "panel": "new"
