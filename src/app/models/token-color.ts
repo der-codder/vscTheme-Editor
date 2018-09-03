@@ -1,6 +1,17 @@
 import * as tinycolor from 'tinycolor2';
 
 export class TokenColor {
+  private _readability: number;
+  private _modifiedColor: TinycolorInstance;
+
+  constructor(
+    private _backgroundColor: TinycolorInstance,
+    private _defaultColor: TinycolorInstance
+  ) {
+    this._modifiedColor = _defaultColor.clone();
+    this._readability = tinycolor.readability(this.backgroundColor, this.color);
+  }
+
   /**
    * Description of the rule.
    */
@@ -16,7 +27,7 @@ export class TokenColor {
    */
   get scopeName(): string {
     if (!this.name && !this.scope) {
-     return '';
+      return '';
     } else if (this.name) {
       return this.name;
     } else if (this.scope instanceof Array) {
@@ -26,15 +37,18 @@ export class TokenColor {
     }
   }
 
-  private _color: TinycolorInstance;
   /**
    * Color of the token.
    */
   get color(): TinycolorInstance {
-    return this._color;
+    return this.isModified ? this._modifiedColor : this._defaultColor;
   }
   set color(value: TinycolorInstance) {
-    this._color = value;
+    if (this.isColorsEquals(this._modifiedColor, value)) {
+      return;
+    }
+
+    this._modifiedColor = value.clone();
     this._readability = tinycolor.readability(this.backgroundColor, this.color);
   }
 
@@ -45,7 +59,13 @@ export class TokenColor {
     return this._backgroundColor;
   }
 
-  private _readability: number;
+  /**
+   * Indicates that color value was changed.
+   */
+  get isModified(): boolean {
+    return !this.isColorsEquals(this._modifiedColor, this._defaultColor);
+  }
+
   /**
    * Returns the color contrast between color and backgroundColor defined by (WCAG Version 2).
    */
@@ -53,5 +73,7 @@ export class TokenColor {
     return this._readability;
   }
 
-  constructor(private _backgroundColor: TinycolorInstance) { }
+  private isColorsEquals(color1: TinycolorInstance, color2: TinycolorInstance): boolean {
+    return color1.toHex() === color2.toHex();
+  }
 }

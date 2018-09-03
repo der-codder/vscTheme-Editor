@@ -24,35 +24,29 @@ export class SharedService {
     this.colorScheme.name = 'Test Theme';
     this.colorScheme.editorBackground = tinycolor('#fffffe');
 
-    const token1 = new TokenColor(this.colorScheme.editorBackground);
+    const token1 = new TokenColor(this.colorScheme.editorBackground, tinycolor('#ffffff'));
     token1.name = 'fail';
     token1.scope = 'scope';
-    token1.color = tinycolor('#ffffff');
 
-    const token2 = new TokenColor(this.colorScheme.editorBackground);
+    const token2 = new TokenColor(this.colorScheme.editorBackground, tinycolor('#949494'));
     token2.name = 'aa-large';
     token2.scope = ['scope1', 'scope2'];
-    token2.color = tinycolor('#949494');
 
-    const token3 = new TokenColor(this.colorScheme.editorBackground);
+    const token3 = new TokenColor(this.colorScheme.editorBackground, tinycolor('#767676'));
     token3.name = 'aa';
     token3.scope = ['scope1', 'scope2', 'scope3'];
-    token3.color = tinycolor('#767676');
 
-    const token4 = new TokenColor(this.colorScheme.editorBackground);
+    const token4 = new TokenColor(this.colorScheme.editorBackground, tinycolor('#000000'));
     token4.name = 'aaa';
     token4.scope = ['scope1', 'scope2', 'scope3', 'scope4'];
-    token4.color = tinycolor('#000000');
 
-    const token5 = new TokenColor(tinycolor('#000000'));
+    const token5 = new TokenColor(tinycolor('#000000'), tinycolor('#000000'));
     token5.name = 'black on black';
     token5.scope = ['scope1', 'scope2', 'scope3', 'scope4'];
-    token5.color = tinycolor('#000000');
 
-    const token6 = new TokenColor(tinycolor('#000000'));
+    const token6 = new TokenColor(tinycolor('#000000'), tinycolor('#ffffff'));
     token6.name = 'white on black';
     token6.scope = ['scope1', 'scope2', 'scope3', 'scope4'];
-    token6.color = tinycolor('#ffffff');
 
     this.colorScheme.tokenColors = [token1, token2, token3, token4, token5, token6];
   }

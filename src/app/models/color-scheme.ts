@@ -48,10 +48,9 @@ export class ColorScheme {
   }
 
   private static retrieveTokenColor(jsonObj: any, background: TinycolorInstance): TokenColor {
-    const tokenColor = new TokenColor(background);
+    const tokenColor = new TokenColor(background, tinycolor(jsonObj.settings.foreground));
     tokenColor.name = jsonObj.name;
     tokenColor.scope = jsonObj.scope;
-    tokenColor.color = tinycolor(jsonObj.settings.foreground);
 
     return tokenColor;
   }
