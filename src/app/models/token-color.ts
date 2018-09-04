@@ -73,6 +73,22 @@ export class TokenColor {
     return this._readability;
   }
 
+  /**
+   * Gets a new instance that object.
+   */
+  clone(): TokenColor {
+    const objCopy = new TokenColor(tinycolor('#000000'), tinycolor('#000000'));
+
+    objCopy._modifiedColor = this._modifiedColor.clone();
+    objCopy._backgroundColor = this._backgroundColor.clone();
+    objCopy._defaultColor = this._defaultColor.clone();
+    objCopy._readability = this._readability;
+    objCopy.name = this.name;
+    objCopy.scope = this.scope;
+
+    return objCopy;
+  }
+
   private isColorsEquals(color1: TinycolorInstance, color2: TinycolorInstance): boolean {
     return color1.toHex() === color2.toHex();
   }

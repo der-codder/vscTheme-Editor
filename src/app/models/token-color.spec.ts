@@ -57,5 +57,49 @@ describe('TokenColor', () => {
 
       expect(tokenColor.readability).toEqual(21);
     });
+
+  });
+
+  describe('.clone', () => {
+    it('should return copy of that not modified object', () => {
+      const tokenColor = new TokenColor(tinycolor('#000000'), tinycolor('#FFFFFF'));
+      tokenColor.name = 'name_test';
+      tokenColor.scope = 'scope_test';
+
+      const objCopy = tokenColor.clone();
+
+      expect(objCopy.backgroundColor.toHexString().toUpperCase()).toEqual('#000000');
+      expect(objCopy.color.toHexString().toUpperCase()).toEqual('#FFFFFF');
+      expect(objCopy.isModified).toBeFalsy();
+      expect(objCopy.readability).toEqual(21);
+      expect(objCopy.name).toEqual('name_test');
+      expect(objCopy.scope).toEqual('scope_test');
+    });
+
+    it('should return immutable copy of that not modified object', () => {
+      const tokenColor = new TokenColor(tinycolor('#000000'), tinycolor('#FFFFFF'));
+      tokenColor.name = 'name_test';
+      tokenColor.scope = 'scope_test';
+
+      const objCopy = tokenColor.clone();
+      tokenColor.name = 'name_test_modified';
+      tokenColor.scope = 'scope_test_modified';
+
+      expect(objCopy.backgroundColor.toHexString().toUpperCase()).toEqual('#000000');
+      expect(objCopy.color.toHexString().toUpperCase()).toEqual('#FFFFFF');
+      expect(objCopy.isModified).toBeFalsy();
+      expect(objCopy.readability).toEqual(21);
+      expect(objCopy.name).toEqual('name_test');
+      expect(objCopy.scope).toEqual('scope_test');
+    });
+
+    it('should return immutable copy of that object (color is modified)', () => {
+      const tokenColor = new TokenColor(tinycolor('#000000'), tinycolor('#FF0000'));
+      tokenColor.color = tinycolor('#FFFFFF');
+
+      const objCopy = tokenColor.clone();
+
+      expect(objCopy.color.toHexString().toUpperCase()).toEqual('#FFFFFF');
+    });
   });
 });
