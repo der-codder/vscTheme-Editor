@@ -42,6 +42,22 @@
       <mat-cell *matCellDef="let element"> {{element.scope | arrayToString}} </mat-cell>
     </ng-container>
 
+    <!-- Modified Column -->
+    <ng-container matColumnDef="modified">
+      <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
+      <!-- <mat-cell *matCellDef="let element"> {{element.isModified}} </mat-cell> -->
+      <mat-cell *matCellDef="let element">
+
+        <mat-checkbox [checked]="element.isModified">
+        </mat-checkbox>
+
+        <button mat-icon-button class="cell-button">
+          <mat-icon (click)="editTokenColor(element)" matTooltip="Edit">edit</mat-icon>
+        </button>
+
+      </mat-cell>
+    </ng-container>
+
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
   </mat-table>

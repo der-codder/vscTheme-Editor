@@ -48,7 +48,12 @@ export class SharedService {
     token6.name = 'white on black';
     token6.scope = ['scope1', 'scope2', 'scope3', 'scope4'];
 
-    this.colorScheme.tokenColors = [token1, token2, token3, token4, token5, token6];
+    const token7 = new TokenColor(this.colorScheme.editorBackground, tinycolor('#ffffff'));
+    token7.name = 'modified';
+    token7.scope = 'scope';
+    token7.color = tinycolor('#ff0000');
+
+    this.colorScheme.tokenColors = [token1, token2, token3, token4, token5, token6, token7];
   }
 
   // public getTheme(url: string) {

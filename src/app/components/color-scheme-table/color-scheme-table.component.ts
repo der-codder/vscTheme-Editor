@@ -1,12 +1,18 @@
 import { Component, ViewChild, OnInit, OnDestroy } from '@angular/core';
-import { MatTableDataSource, MatSort } from '@angular/material';
+import { MatTableDataSource, MatSort, MatDialog } from '@angular/material';
 
 import { SharedService } from '../../services/shared.service';
+import { EditTokenColorDialogComponent } from './edit-token-color-dialog/edit-token-color-dialog.component';
+import { TokenColor } from '../../models/token-color';
 
 @Component({
   selector: 'app-color-scheme-table',
   templateUrl: './color-scheme-table.component.html',
   styles: [`
+    mat-checkbox {
+      margin-right: 15px;
+      margin-left: 15px;
+    }
     .table-header {
       min-height: 64px;
       padding: 8px 24px 0;
@@ -21,14 +27,14 @@ import { SharedService } from '../../services/shared.service';
   `]
 })
 export class ColorSchemeTableComponent implements OnInit, OnDestroy {
-  displayedColumns = ['readability', 'color', 'name', 'scope'];
+  displayedColumns = ['readability', 'color', 'name', 'scope', 'modified'];
   dataSource: any;
   themeName: string;
   status: string;
 
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private sharedService: SharedService) {}
+  constructor(private sharedService: SharedService, public dialog: MatDialog) {}
 
   ngOnInit() {
     this.updateDataSource();
@@ -43,6 +49,19 @@ export class ColorSchemeTableComponent implements OnInit, OnDestroy {
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
     this.dataSource.filter = filterValue;
+  }
+
+  editTokenColor(token: TokenColor): void {
+    const dialogRef = this.dialog.open(EditTokenColorDialogComponent, {
+      width: '250px',
+      data: { originalTokenColor: token }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      console.log(result);
+      // this.animal = result;
+    });
   }
 
   private updateDataSource() {

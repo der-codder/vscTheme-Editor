@@ -1,4 +1,5 @@
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
@@ -9,7 +10,9 @@ import {
   MatTableModule,
   MatSortModule,
   MatIconModule,
-  MatTooltipModule
+  MatTooltipModule,
+  MatCheckboxModule,
+  MatDialogModule
 } from '@angular/material';
 
 import { AppComponent } from './components/app/app.component';
@@ -20,6 +23,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { ColorSchemeTableComponent } from './components/color-scheme-table/color-scheme-table.component';
 import { ColorEditorComponent } from './components/color-scheme-table/color-editor/color-editor.component';
 import { ReadabilityViewComponent } from './components/color-scheme-table/readability-view.component';
+import { EditTokenColorDialogComponent } from './components/color-scheme-table/edit-token-color-dialog/edit-token-color-dialog.component';
 
 @NgModule({
   declarations: [
@@ -28,11 +32,13 @@ import { ReadabilityViewComponent } from './components/color-scheme-table/readab
     HeaderComponent,
     ColorSchemeTableComponent,
     ColorEditorComponent,
-    ReadabilityViewComponent
+    ReadabilityViewComponent,
+    EditTokenColorDialogComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
     HttpClientModule,
     MatToolbarModule,
     MatInputModule,
@@ -40,12 +46,15 @@ import { ReadabilityViewComponent } from './components/color-scheme-table/readab
     MatTableModule,
     MatSortModule,
     MatIconModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatCheckboxModule,
+    MatDialogModule
   ],
   providers: [
     SharedService,
     DataService
   ],
+  entryComponents: [EditTokenColorDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
