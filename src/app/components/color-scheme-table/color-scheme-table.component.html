@@ -26,7 +26,7 @@
     <ng-container matColumnDef="color">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Color </mat-header-cell>
       <mat-cell *matCellDef="let element">
-        <app-color-editor [(color)]="element.color" [backgroundColor]="element.backgroundColor"></app-color-editor>
+        <app-token-color-editor [(color)]="element.color" [backgroundColor]="element.backgroundColor"></app-token-color-editor>
       </mat-cell>
     </ng-container>
 

@@ -3,11 +3,11 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import * as tinycolor from 'tinycolor2';
 
 @Component({
-  selector: 'app-color-editor',
-  templateUrl: './color-editor.component.html',
-  styleUrls: ['./color-editor.component.css']
+  selector: 'app-token-color-editor',
+  templateUrl: './token-color-editor.component.html',
+  styleUrls: ['./token-color-editor.component.css']
 })
-export class ColorEditorComponent {
+export class TokenColorEditorComponent {
   private readonly modificationStep = 5;
   private inputFocused = false;
 
