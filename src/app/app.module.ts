@@ -21,6 +21,7 @@ import { SharedService } from './services/shared.service';
 import { DataService } from './services/data.service';
 import { HeaderComponent } from './components/header/header.component';
 import { ColorSchemeTableComponent } from './components/color-scheme-table/color-scheme-table.component';
+import { TokenEditorComponent } from './components/token-editor/token-editor.component';
 import { ColorEditorComponent } from './components/color-scheme-table/color-editor/color-editor.component';
 import { ReadabilityViewComponent } from './components/color-scheme-table/readability-view.component';
 import { EditTokenColorDialogComponent } from './components/color-scheme-table/edit-token-color-dialog/edit-token-color-dialog.component';
@@ -33,7 +34,8 @@ import { EditTokenColorDialogComponent } from './components/color-scheme-table/e
     ColorSchemeTableComponent,
     ColorEditorComponent,
     ReadabilityViewComponent,
-    EditTokenColorDialogComponent
+    EditTokenColorDialogComponent,
+    TokenEditorComponent
   ],
   imports: [
     BrowserModule,
