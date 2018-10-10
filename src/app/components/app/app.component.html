@@ -1,6 +1,10 @@
 <header class="mat-elevation-z6">
   <app-header></app-header>
 </header>
-<section>
-  <app-color-scheme-table class="row"></app-color-scheme-table>
+<section class="row" style="margin-top: 10px">
+  <app-color-picker [(color)]="color"></app-color-picker>
+  <p [style.background]="color">{{ color }}</p>
 </section>
+<!-- <section>
+  <app-color-scheme-table class="row"></app-color-scheme-table>
+</section> -->

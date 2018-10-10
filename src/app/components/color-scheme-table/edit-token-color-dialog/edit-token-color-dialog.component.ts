@@ -10,7 +10,7 @@ export interface DialogData {
 @Component({
   selector: 'app-edit-token-color-dialog',
   templateUrl: './edit-token-color-dialog.component.html',
-  styleUrls: ['./edit-token-color-dialog.component.css']
+  styles: [``]
 })
 export class EditTokenColorDialogComponent implements OnInit {
   editableToken: TokenColor;

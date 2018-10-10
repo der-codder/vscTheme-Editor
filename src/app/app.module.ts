@@ -13,7 +13,8 @@ import {
   MatTooltipModule,
   MatCheckboxModule,
   MatDialogModule,
-  MatSliderModule
+  MatSliderModule,
+  MatTabsModule
 } from '@angular/material';
 
 import { AppComponent } from './components/app/app.component';
@@ -54,7 +55,8 @@ import { ColorPickerComponent } from './components/color-picker/color-picker.com
     MatTooltipModule,
     MatCheckboxModule,
     MatDialogModule,
-    MatSliderModule
+    MatSliderModule,
+    MatTabsModule
   ],
   providers: [
     SharedService,

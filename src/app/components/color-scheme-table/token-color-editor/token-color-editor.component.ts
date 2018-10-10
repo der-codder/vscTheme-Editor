@@ -5,7 +5,7 @@ import * as tinycolor from 'tinycolor2';
 @Component({
   selector: 'app-token-color-editor',
   templateUrl: './token-color-editor.component.html',
-  styleUrls: ['./token-color-editor.component.css']
+  styleUrls: ['./token-color-editor.component.scss']
 })
 export class TokenColorEditorComponent {
   private readonly modificationStep = 5;

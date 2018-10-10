@@ -4,10 +4,10 @@ import * as tinycolor from 'tinycolor2';
 @Component({
   selector: 'app-color-picker',
   templateUrl: './color-picker.component.html',
-  styleUrls: ['./color-picker.component.css']
+  styleUrls: ['./color-picker.component.scss']
 })
 export class ColorPickerComponent implements OnInit {
-  colorHeader: string;
+  colorValue: string;
   rgba: ColorFormats.RGBA = { r: 255, g: 255, b: 255, a: 100 };
   hsla: ColorFormats.HSLA;
 
@@ -23,7 +23,7 @@ export class ColorPickerComponent implements OnInit {
 
     this._color = value;
 
-    this.colorHeader = this._color.toString();
+    this.colorValue = this._color.toString();
     this.rgba = this._color.toRgb();
     this.colorChange.emit(this._color);
   }
@@ -35,15 +35,7 @@ export class ColorPickerComponent implements OnInit {
   ngOnInit() {
   }
 
-  valueChanged(value) {
-    console.log('input');
-    console.log(value);
-    this.color = tinycolor({ r: value, g: this.rgba.g, b: this.rgba.b, a: this.rgba.a });
-  }
-
   redChanged(value) {
-    console.log('slider');
-    console.log(value);
     this.color = tinycolor({ r: value, g: this.rgba.g, b: this.rgba.b, a: this.rgba.a });
   }
 
