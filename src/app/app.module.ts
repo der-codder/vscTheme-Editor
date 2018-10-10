@@ -26,7 +26,7 @@ import { TokenEditorComponent } from './components/token-editor/token-editor.com
 import { TokenColorEditorComponent } from './components/color-scheme-table/token-color-editor/token-color-editor.component';
 import { ReadabilityViewComponent } from './components/color-scheme-table/readability-view.component';
 import { EditTokenColorDialogComponent } from './components/color-scheme-table/edit-token-color-dialog/edit-token-color-dialog.component';
-import { ColorEditorComponent } from './components/color-editor/color-editor.component';
+import { ColorPickerComponent } from './components/color-picker/color-picker.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +38,7 @@ import { ColorEditorComponent } from './components/color-editor/color-editor.com
     ReadabilityViewComponent,
     EditTokenColorDialogComponent,
     TokenEditorComponent,
-    ColorEditorComponent
+    ColorPickerComponent
   ],
   imports: [
     BrowserModule,
