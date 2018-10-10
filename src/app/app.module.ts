@@ -12,7 +12,8 @@ import {
   MatIconModule,
   MatTooltipModule,
   MatCheckboxModule,
-  MatDialogModule
+  MatDialogModule,
+  MatSliderModule
 } from '@angular/material';
 
 import { AppComponent } from './components/app/app.component';
@@ -25,6 +26,7 @@ import { TokenEditorComponent } from './components/token-editor/token-editor.com
 import { TokenColorEditorComponent } from './components/color-scheme-table/token-color-editor/token-color-editor.component';
 import { ReadabilityViewComponent } from './components/color-scheme-table/readability-view.component';
 import { EditTokenColorDialogComponent } from './components/color-scheme-table/edit-token-color-dialog/edit-token-color-dialog.component';
+import { ColorEditorComponent } from './components/color-editor/color-editor.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { EditTokenColorDialogComponent } from './components/color-scheme-table/e
     TokenColorEditorComponent,
     ReadabilityViewComponent,
     EditTokenColorDialogComponent,
-    TokenEditorComponent
+    TokenEditorComponent,
+    ColorEditorComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +53,8 @@ import { EditTokenColorDialogComponent } from './components/color-scheme-table/e
     MatIconModule,
     MatTooltipModule,
     MatCheckboxModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSliderModule
   ],
   providers: [
     SharedService,

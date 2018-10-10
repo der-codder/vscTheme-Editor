@@ -1,0 +1,8 @@
+<div class="container row">
+  <header [style.background]="colorHeader">{{ colorHeader }}</header>
+  <mat-form-field>
+    <mat-label>Red</mat-label>
+    <mat-slider min="0" max="255" step="1" [value]="rgba.r" (valueChange)="redChanged($event)"></mat-slider>
+    <input matInput type="number" min="0" max="255" [value]="rgba.r" (input)="valueChanged($event.target.valueAsNumber)">
+  </mat-form-field>
+</div>

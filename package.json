@@ -24,6 +24,7 @@
     "@angular/router": "^6.1.0",
     "@types/strip-json-comments": "0.0.30",
     "core-js": "^2.5.4",
+    "hammerjs": "^2.0.8",
     "rxjs": "^6.0.0",
     "strip-json-comments": "^2.0.1",
     "tinycolor2": "^1.4.1",
