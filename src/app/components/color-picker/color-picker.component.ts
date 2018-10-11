@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import * as tinycolor from 'tinycolor2';
 
 @Component({
@@ -11,6 +12,7 @@ export class ColorPickerComponent implements OnInit {
   alphaValue: number;
   rgba: ColorFormats.RGBA = { r: 255, g: 255, b: 255, a: 100 };
   hsla: ColorFormats.HSLA;
+  selected = new FormControl(0);
 
   private _color: TinycolorInstance;
   get color(): TinycolorInstance {
@@ -24,7 +26,7 @@ export class ColorPickerComponent implements OnInit {
 
     this._color = value;
 
-    this.colorValue = this._color.toString();
+    this.updateColorValue();
     this.alphaValue = this._color.getAlpha() * 100;
     this.rgba = this._color.toRgb();
     this.colorChange.emit(this._color);
@@ -52,6 +54,23 @@ export class ColorPickerComponent implements OnInit {
   alphaChanged(value) {
     console.log(value / 100);
     this.color = tinycolor({ r: this.rgba.r, g: this.rgba.g, b: this.rgba.b, a: value / 100 });
+  }
+
+  onSelectedIndexChange(selectedIndex) {
+    this.selected.setValue(selectedIndex);
+    this.updateColorValue();
+  }
+
+  private updateColorValue() {
+    if (this.selected.value === 0) {
+      this.colorValue = this.color.toRgbString();
+    } else if (this.selected.value === 1) {
+      this.colorValue = this.color.toHslString();
+    } else {
+      this._color.getAlpha() === 1
+        ? this.colorValue = this.color.toHexString()
+        : this.colorValue = this.color.toHex8String();
+    }
   }
 
 }

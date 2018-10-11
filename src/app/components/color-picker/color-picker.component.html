@@ -6,11 +6,13 @@
       [value]="colorValue"
       class="layout-fill layout-align-center-center">
   </div>
-  <mat-tab-group mat-stretch-tabs>
+  <mat-tab-group mat-stretch-tabs
+    [selectedIndex]="selected.value"
+    (selectedIndexChange)="onSelectedIndexChange($event)">
     <mat-tab label="RGB">
       <div class="editor-container">
         <div class="editor-row">
-          <span>R</span>
+          <span class="mat-hint"><b matTooltip="Red">R</b></span>
           <mat-slider
             min="0" max="255" step="1" thumbLabel="true" color="primary"
             [value]="rgba.r" (valueChange)="redChanged($event)"></mat-slider>
@@ -21,7 +23,7 @@
           </mat-form-field>
         </div>
         <div class="editor-row">
-          <span>G</span>
+          <span class="mat-hint"><b matTooltip="Green">G</b></span>
           <mat-slider
             min="0" max="255" step="1" thumbLabel="true" color="primary"
             [value]="rgba.g" (valueChange)="greenChanged($event)"></mat-slider>
@@ -32,7 +34,7 @@
           </mat-form-field>
         </div>
         <div class="editor-row">
-          <span>B</span>
+          <span class="mat-hint"><b matTooltip="Blue">B</b></span>
           <mat-slider
             min="0" max="255" step="1" thumbLabel="true" color="primary"
             [value]="rgba.b" (valueChange)="blueChanged($event)"></mat-slider>
@@ -43,7 +45,7 @@
           </mat-form-field>
         </div>
         <div class="editor-row">
-          <span>A</span>
+          <span class="mat-hint"><b matTooltip="Alpha">A</b></span>
           <mat-slider
             min="0" max="100" step="1" thumbLabel="true" color="primary"
             [value]="alphaValue" (valueChange)="alphaChanged($event)"></mat-slider>
