@@ -1,19 +1,59 @@
 <div class="container mat-elevation-z4">
-  <div class="preview layout-column">
+  <div class="preview checkered-bg">
     <input
       [style.background]="color"
-      ng-class="{'dark': !color.isDark() || color.getAlpha() < .45}"
+      [ngClass]="{'dark': !color.isDark() || color.getAlpha() < .45}"
       [value]="colorValue"
       class="layout-fill layout-align-center-center">
   </div>
   <mat-tab-group mat-stretch-tabs>
     <mat-tab label="RGB">
       <div class="editor-container">
-        <span>Red</span>
-        <mat-slider min="0" max="255" step="1" [value]="rgba.r" (valueChange)="redChanged($event)"></mat-slider>
-        <mat-form-field>
-          <input matInput type="number" min="0" max="255" [value]="rgba.r" (input)="redChanged($event.target.valueAsNumber)">
-        </mat-form-field>
+        <div class="editor-row">
+          <span>R</span>
+          <mat-slider
+            min="0" max="255" step="1" thumbLabel="true" color="primary"
+            [value]="rgba.r" (valueChange)="redChanged($event)"></mat-slider>
+          <mat-form-field>
+            <input
+              matInput type="number" min="0" max="255"
+              [value]="rgba.r" (input)="redChanged($event.target.valueAsNumber)">
+          </mat-form-field>
+        </div>
+        <div class="editor-row">
+          <span>G</span>
+          <mat-slider
+            min="0" max="255" step="1" thumbLabel="true" color="primary"
+            [value]="rgba.g" (valueChange)="greenChanged($event)"></mat-slider>
+          <mat-form-field>
+            <input
+              matInput type="number" min="0" max="255"
+              [value]="rgba.g" (input)="greenChanged($event.target.valueAsNumber)">
+          </mat-form-field>
+        </div>
+        <div class="editor-row">
+          <span>B</span>
+          <mat-slider
+            min="0" max="255" step="1" thumbLabel="true" color="primary"
+            [value]="rgba.b" (valueChange)="blueChanged($event)"></mat-slider>
+          <mat-form-field>
+            <input
+              matInput type="number" min="0" max="255"
+              [value]="rgba.b" (input)="blueChanged($event.target.valueAsNumber)">
+          </mat-form-field>
+        </div>
+        <div class="editor-row">
+          <span>A</span>
+          <mat-slider
+            min="0" max="100" step="1" thumbLabel="true" color="primary"
+            [value]="alphaValue" (valueChange)="alphaChanged($event)"></mat-slider>
+          <mat-form-field>
+            <input
+              matInput type="number" min="0" max="100"
+              [value]="alphaValue" (input)="alphaChanged($event.target.valueAsNumber)">
+            <span matSuffix>%</span>
+          </mat-form-field>
+        </div>
       </div>
     </mat-tab>
     <mat-tab label="HEX"> Content 2 </mat-tab>

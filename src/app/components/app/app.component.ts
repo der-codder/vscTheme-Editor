@@ -11,7 +11,7 @@ import { TokenColor } from 'src/app/models/token-color';
 export class AppComponent {
   title = 'vscTheme-Editor';
   token: TokenColor;
-  color = tinycolor('#555555');
+  color = tinycolor('#556677');
 
   constructor() {
     this.token = new TokenColor(tinycolor('#fffffe'), tinycolor('#000000'));
