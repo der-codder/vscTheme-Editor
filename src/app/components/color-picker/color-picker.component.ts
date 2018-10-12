@@ -10,9 +10,9 @@ import * as tinycolor from 'tinycolor2';
 export class ColorPickerComponent implements OnInit {
   colorValue: string;
   alphaValue: number;
-  rgba: ColorFormats.RGBA = { r: 255, g: 255, b: 255, a: 100 };
+  rgba: ColorFormats.RGBA;
   hsla: ColorFormats.HSLA;
-  selected = new FormControl(1);
+  selected = new FormControl(0);
 
   private _color: TinycolorInstance;
   get color(): TinycolorInstance {
@@ -52,7 +52,6 @@ export class ColorPickerComponent implements OnInit {
     this.color = tinycolor({ r: this.rgba.r, g: this.rgba.g, b: value, a: this.rgba.a });
   }
 
-
   hueChanged(value) {
     this.color = tinycolor({ h: value, s: this.hsla.s, l: this.hsla.l, a: this.hsla.a });
   }
@@ -65,7 +64,6 @@ export class ColorPickerComponent implements OnInit {
     this.color = tinycolor({ h: this.hsla.h, s: this.hsla.s, l: value / 100, a: this.hsla.a });
   }
 
-
   alphaChanged(value) {
     this.color = tinycolor({ r: this.rgba.r, g: this.rgba.g, b: this.rgba.b, a: value / 100 });
   }
@@ -77,13 +75,13 @@ export class ColorPickerComponent implements OnInit {
 
   private updateColorValue() {
     if (this.selected.value === 0) {
-      this.colorValue = this.color.toRgbString();
-    } else if (this.selected.value === 1) {
-      this.colorValue = this.color.toHslString();
-    } else {
       this._color.getAlpha() === 1
         ? this.colorValue = this.color.toHexString()
         : this.colorValue = this.color.toHex8String();
+    } else if (this.selected.value === 1) {
+      this.colorValue = this.color.toRgbString();
+    } else {
+      this.colorValue = this.color.toHslString();
     }
   }
 

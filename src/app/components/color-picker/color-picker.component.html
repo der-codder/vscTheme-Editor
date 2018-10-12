@@ -9,6 +9,11 @@
   <mat-tab-group mat-stretch-tabs
     [selectedIndex]="selected.value"
     (selectedIndexChange)="onSelectedIndexChange($event)">
+    <mat-tab label="HEX">
+      <div class="editor-container">
+        <app-hex-editor [(color)]="color"></app-hex-editor>
+      </div>
+    </mat-tab>
     <mat-tab label="RGB">
       <div class="editor-container">
         <div class="editor-row">
@@ -109,6 +114,5 @@
         </div>
       </div>
     </mat-tab>
-    <mat-tab label="HEX"> Content </mat-tab>
   </mat-tab-group>
 </div>
