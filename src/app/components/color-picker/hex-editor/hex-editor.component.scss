@@ -1,6 +1,24 @@
+div.spectrum-container {
+  position: relative;
+  height: 255px;
+  width: 255px;
+}
+
 canvas#spectrum {
-  background: #0ff;
   cursor: crosshair;
-  height: 250px;
-  width: 250px;
+  height: 255px;
+  width: 255px;
+}
+
+div.spectrum-marker {
+  pointer-events: none;
+  position: absolute;
+  width: 11px;
+  height: 11px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 2px 0 rgba(0,0,0,.5), inset 0 0 2px 0 rgba(0,0,0,.5);
+  box-sizing: border-box;
+  top: -5px;
+  left: calc(100% - 5px);
 }

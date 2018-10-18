@@ -29,6 +29,7 @@ import { ReadabilityViewComponent } from './components/color-scheme-table/readab
 import { EditTokenColorDialogComponent } from './components/color-scheme-table/edit-token-color-dialog/edit-token-color-dialog.component';
 import { ColorPickerComponent } from './components/color-picker/color-picker.component';
 import { HexEditorComponent } from './components/color-picker/hex-editor/hex-editor.component';
+import { PickColorDirective } from './components/color-picker/hex-editor/pick-color.directive';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { HexEditorComponent } from './components/color-picker/hex-editor/hex-edi
     EditTokenColorDialogComponent,
     TokenEditorComponent,
     ColorPickerComponent,
-    HexEditorComponent
+    HexEditorComponent,
+    PickColorDirective
   ],
   imports: [
     BrowserModule,

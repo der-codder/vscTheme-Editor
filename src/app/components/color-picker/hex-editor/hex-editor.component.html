@@ -1,1 +1,4 @@
-<canvas #spectrum id="spectrum"></canvas>
+<div class="spectrum-container">
+  <canvas #spectrum id="spectrum" appPickColor (colorPicked)="onSpectrumColorPicked($event)"></canvas>
+  <div #spectrumMarker class="spectrum-marker"></div>
+</div>
