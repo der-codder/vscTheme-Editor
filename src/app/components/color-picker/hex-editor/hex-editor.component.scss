@@ -1,11 +1,3 @@
-.checkered-bg {
-  background-color: #fff;
-  background-image: -webkit-linear-gradient(45deg,#ddd 25%,transparent 0,transparent 75%,#ddd 0,#ddd),-webkit-linear-gradient(45deg,#ddd 25%,transparent 0,transparent 75%,#ddd 0,#ddd);
-  background-image: linear-gradient(45deg,#ddd 25%,transparent 0,transparent 75%,#ddd 0,#ddd),linear-gradient(45deg,#ddd 25%,transparent 0,transparent 75%,#ddd 0,#ddd);
-  background-size: 8px 8px;
-  background-position: 0 0,4px 4px;
-}
-
 div.container {
   display: flex;
   flex-direction: row;
