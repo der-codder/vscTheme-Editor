@@ -1,4 +1,14 @@
-<div class="spectrum-container">
-  <canvas #spectrum id="spectrum" appPickColor (colorPicked)="onSpectrumColorPicked($event)"></canvas>
-  <div #spectrumMarker class="spectrum-marker"></div>
+<div class="container">
+  <div class="spectrum-container">
+    <canvas #spectrum appPickColor (colorPicked)="onSpectrumColorPicked($event)"></canvas>
+    <div #spectrumMarker id="spectrumMarker" class="circle-marker"></div>
+  </div>
+  <div class="hue-container">
+    <canvas #hue appPickColor (colorPicked)="onHueColorPicked($event)"></canvas>
+    <div #hueMarker id="hueMarker" class="square-marker"></div>
+  </div>
+  <div class="alpha-container checkered-bg">
+    <canvas #alpha appPickColor (colorPicked)="onAlphaColorPicked($event)"></canvas>
+    <div #alphaMarker id="alphaMarker" class="square-marker"></div>
+  </div>
 </div>

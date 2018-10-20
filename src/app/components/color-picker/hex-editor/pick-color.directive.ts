@@ -50,7 +50,6 @@ export class PickColorDirective {
 
   @HostListener('window:mouseup')
   onMouseUp() {
-    console.log('onMouseUp');
     this.mouseDown = false;
   }
 

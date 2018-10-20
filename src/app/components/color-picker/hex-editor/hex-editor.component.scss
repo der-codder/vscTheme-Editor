@@ -1,24 +1,74 @@
-div.spectrum-container {
-  position: relative;
-  height: 255px;
-  width: 255px;
+.checkered-bg {
+  background-color: #fff;
+  background-image: -webkit-linear-gradient(45deg,#ddd 25%,transparent 0,transparent 75%,#ddd 0,#ddd),-webkit-linear-gradient(45deg,#ddd 25%,transparent 0,transparent 75%,#ddd 0,#ddd);
+  background-image: linear-gradient(45deg,#ddd 25%,transparent 0,transparent 75%,#ddd 0,#ddd),linear-gradient(45deg,#ddd 25%,transparent 0,transparent 75%,#ddd 0,#ddd);
+  background-size: 8px 8px;
+  background-position: 0 0,4px 4px;
 }
 
-canvas#spectrum {
-  cursor: crosshair;
-  height: 255px;
-  width: 255px;
-}
+div.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 
-div.spectrum-marker {
-  pointer-events: none;
-  position: absolute;
-  width: 11px;
-  height: 11px;
-  border: 2px solid #fff;
-  border-radius: 50%;
-  box-shadow: 0 0 2px 0 rgba(0,0,0,.5), inset 0 0 2px 0 rgba(0,0,0,.5);
-  box-sizing: border-box;
-  top: -5px;
-  left: calc(100% - 5px);
+  canvas {
+    cursor: crosshair;
+    height: 255px;
+  }
+
+  div.circle-marker {
+    pointer-events: none;
+    position: absolute;
+    box-sizing: border-box;
+    width: 11px;
+    height: 11px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 2px 0 rgba(0,0,0,.5), inset 0 0 2px 0 rgba(0,0,0,.5);
+    top: -5px;
+    left: calc(100% - 5px);
+  }
+
+  div.square-marker {
+    pointer-events: none;
+    position: absolute;
+    box-sizing: border-box;
+    border: 2px solid #fff;
+    box-shadow: 0 0 2px 0 rgba(0,0,0,.5);
+    height: 7px;
+    width: 100%;
+    top: -2px;
+    left: 0;
+  }
+
+  div.spectrum-container {
+    position: relative;
+    height: 255px;
+    width: 255px;
+
+    canvas {
+      width: 255px;
+    }
+  }
+
+  div.hue-container {
+    position: relative;
+    height: 255px;
+    width: 30px;
+
+    canvas {
+      width: 30px;
+    }
+  }
+
+  div.alpha-container {
+    position: relative;
+    height: 255px;
+    width: 30px;
+
+    canvas {
+      width: 30px;
+    }
+  }
+
 }
