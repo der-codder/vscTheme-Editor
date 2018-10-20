@@ -15,7 +15,8 @@ export class TokenColorEditorComponent {
   get color(): TinycolorInstance {
     return this._color;
   }
-  @Input() set color(value: TinycolorInstance) {
+  @Input()
+  set color(value: TinycolorInstance) {
     this._color = value;
     this.colorChange.emit(this._color);
     this.updateHexValue();

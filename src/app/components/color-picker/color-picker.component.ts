@@ -32,8 +32,7 @@ export class ColorPickerComponent implements OnInit {
     this.updateHsla();
     this.colorChange.emit(this._color);
   }
-  @Output()
-  colorChange = new EventEmitter<TinycolorInstance>();
+  @Output() colorChange = new EventEmitter<TinycolorInstance>();
 
   constructor() { }
 

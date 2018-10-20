@@ -15,8 +15,7 @@ export class PickColorDirective {
   private height: number;
   private width: number;
 
-  @Output('colorPicked')
-  colorPicked = new EventEmitter<Point>();
+  @Output() colorPicked = new EventEmitter<Point>();
 
   constructor() { }
 

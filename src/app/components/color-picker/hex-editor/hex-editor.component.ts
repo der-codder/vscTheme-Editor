@@ -43,8 +43,7 @@ export class HexEditorComponent implements AfterViewInit {
 
     this.colorChange.emit(this._color);
   }
-  @Output()
-  colorChange = new EventEmitter<TinycolorInstance>();
+  @Output() colorChange = new EventEmitter<TinycolorInstance>();
 
   @ViewChild('spectrum') spectrum: ElementRef;
   @ViewChild('spectrumMarker') spectrumMarker: ElementRef;
