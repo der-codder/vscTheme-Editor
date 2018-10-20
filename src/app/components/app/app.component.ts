@@ -9,7 +9,7 @@ import { TokenColor } from 'src/app/models/token-color';
   styles: [``]
 })
 export class AppComponent {
-  title = 'vscTheme-Editor';
+  title = 'VscThemeEditor';
   token: TokenColor;
   color = tinycolor('#556677');
 
