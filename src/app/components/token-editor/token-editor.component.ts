@@ -4,7 +4,7 @@ import { TokenColor } from 'src/app/models/token-color';
 @Component({
   selector: 'app-token-editor',
   templateUrl: './token-editor.component.html',
-  styles: [``]
+  styleUrls: ['./token-editor.component.scss']
 })
 export class TokenEditorComponent implements OnInit {
 

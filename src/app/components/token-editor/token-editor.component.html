@@ -1,6 +1,22 @@
-<mat-form-field floatLabel="always">
-  <input matInput [(ngModel)]="token.name" placeholder="Name">
-</mat-form-field>
-<mat-form-field floatLabel="always">
-  <textarea matInput [(ngModel)]="token.scope" placeholder="Scope"></textarea>
-</mat-form-field>
+<div>
+  <div class="token-editor">
+    <mat-form-field floatLabel="always">
+      <input matInput [(ngModel)]="token.name" placeholder="Name">
+    </mat-form-field>
+    <mat-form-field floatLabel="always">
+      <textarea matInput [(ngModel)]="token.scope" placeholder="Scope"></textarea>
+    </mat-form-field>
+    <div>
+      <mat-checkbox [(ngModel)]="token.isBold">
+        <span class="bold">Bold</span>
+      </mat-checkbox>
+      <mat-checkbox [(ngModel)]="token.isItalic">
+        <span class="italic">Italic</span>
+      </mat-checkbox>
+      <mat-checkbox [(ngModel)]="token.isUnderline">
+        <span class="underline">Underline</span>
+      </mat-checkbox>
+    </div>
+  </div>
+  <app-color-picker [(color)]="token.color"></app-color-picker>
+</div>

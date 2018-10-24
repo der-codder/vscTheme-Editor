@@ -4,14 +4,6 @@ export class TokenColor {
   private _readability: number;
   private _modifiedColor: TinycolorInstance;
 
-  constructor(
-    private _backgroundColor: TinycolorInstance,
-    private _defaultColor: TinycolorInstance
-  ) {
-    this._modifiedColor = _defaultColor.clone();
-    this._readability = tinycolor.readability(this.backgroundColor, this.color);
-  }
-
   /**
    * Description of the rule.
    */
@@ -36,6 +28,21 @@ export class TokenColor {
       return this.scope;
     }
   }
+
+  /**
+   * Font style of the rule: bold.
+   */
+  public isBold: Boolean;
+
+  /**
+   * Font style of the rule: italic.
+   */
+  public isItalic: Boolean;
+
+  /**
+   * Font style of the rule: underline.
+   */
+  public isUnderline: Boolean;
 
   /**
    * Color of the token.
@@ -71,6 +78,14 @@ export class TokenColor {
    */
   get readability(): number {
     return this._readability;
+  }
+
+  constructor(
+    private _backgroundColor: TinycolorInstance,
+    private _defaultColor: TinycolorInstance
+  ) {
+    this._modifiedColor = _defaultColor.clone();
+    this._readability = tinycolor.readability(this.backgroundColor, this.color);
   }
 
   /**
