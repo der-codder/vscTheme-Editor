@@ -13,7 +13,6 @@ export class SharedService {
   }
   set colorScheme(value: ColorScheme) {
     this._colorScheme = value;
-    console.log(this._colorScheme);
     this.colorSchemeChange.emit(this.colorScheme);
   }
 

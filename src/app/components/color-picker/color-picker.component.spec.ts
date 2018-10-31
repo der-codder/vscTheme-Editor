@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTabsModule, MatSliderModule, MatInputModule } from '@angular/material';
 import 'hammerjs';
 
@@ -15,7 +15,7 @@ describe('ColorPickerComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        BrowserAnimationsModule,
+        NoopAnimationsModule,
         MatInputModule,
         MatSliderModule,
         MatTabsModule

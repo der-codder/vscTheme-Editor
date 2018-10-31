@@ -17,9 +17,10 @@ export class EditTokenColorDialogComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<EditTokenColorDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData) {
-      this.editableToken = data.originalTokenColor.clone();
-    }
+    @Inject(MAT_DIALOG_DATA) public data: DialogData
+  ) {
+    this.editableToken = data.originalTokenColor.clone();
+  }
 
   ngOnInit() {
   }

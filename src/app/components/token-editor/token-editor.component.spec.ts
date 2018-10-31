@@ -1,11 +1,14 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
-import { MatInputModule } from '@angular/material';
+import { MatInputModule, MatCheckboxModule, MatSliderModule, MatTabsModule } from '@angular/material';
+import 'hammerjs';
 import * as tinycolor from 'tinycolor2';
 
 import { TokenEditorComponent } from './token-editor.component';
 import { TokenColor } from 'src/app/models/token-color';
+import { ColorPickerComponent } from '../color-picker/color-picker.component';
+import { HexEditorComponent } from '../color-picker/hex-editor/hex-editor.component';
 
 describe('TokenEditorComponent', () => {
   let component: TokenEditorComponent;
@@ -14,11 +17,18 @@ describe('TokenEditorComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        BrowserAnimationsModule,
+        NoopAnimationsModule,
         FormsModule,
-        MatInputModule
+        MatInputModule,
+        MatSliderModule,
+        MatTabsModule,
+        MatCheckboxModule
       ],
-      declarations: [ TokenEditorComponent ]
+      declarations: [
+        TokenEditorComponent,
+        ColorPickerComponent,
+        HexEditorComponent
+      ]
     })
     .compileComponents();
   }));

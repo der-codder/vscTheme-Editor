@@ -52,7 +52,7 @@ export class ColorSchemeTableComponent implements OnInit, OnDestroy {
   }
 
   editTokenColor(token: TokenColor): void {
-    const dialogRef = this.dialog.open(EditTokenColorDialogComponent, {
+    this.dialog.open(EditTokenColorDialogComponent, {
       // width: '250px',
       data: { originalTokenColor: token }
     });

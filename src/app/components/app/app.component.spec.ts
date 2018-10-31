@@ -1,6 +1,6 @@
 import { TestBed, async } from '@angular/core/testing';
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {
@@ -31,7 +31,7 @@ describe('AppComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         BrowserModule,
-        BrowserAnimationsModule,
+        NoopAnimationsModule,
         FormsModule,
         HttpClientModule,
         MatToolbarModule,
