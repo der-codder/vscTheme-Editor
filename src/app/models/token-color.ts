@@ -100,6 +100,9 @@ export class TokenColor {
     objCopy._readability = this._readability;
     objCopy.name = this.name;
     objCopy.scope = this.scope;
+    objCopy.isBold = this.isBold;
+    objCopy.isItalic = this.isItalic;
+    objCopy.isUnderline = this.isUnderline;
 
     return objCopy;
   }

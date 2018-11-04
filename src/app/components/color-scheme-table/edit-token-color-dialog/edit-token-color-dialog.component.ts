@@ -26,13 +26,7 @@ export class EditTokenColorDialogComponent implements OnInit {
   }
 
   onOk() {
-    this.data.originalTokenColor.name = this.editableToken.name;
-
-    this.dialogRef.close();
-  }
-
-  onCancel() {
-    this.dialogRef.close();
+    this.dialogRef.close(this.editableToken);
   }
 
 }

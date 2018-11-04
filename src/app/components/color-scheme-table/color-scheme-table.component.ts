@@ -52,10 +52,25 @@ export class ColorSchemeTableComponent implements OnInit, OnDestroy {
   }
 
   editTokenColor(token: TokenColor): void {
-    this.dialog.open(EditTokenColorDialogComponent, {
-      // width: '250px',
-      data: { originalTokenColor: token }
-    });
+    const dialogRef = this.dialog.open(
+      EditTokenColorDialogComponent,
+      {
+        data: { originalTokenColor: token }
+      }
+    );
+
+    dialogRef.afterClosed().subscribe(
+      result => {
+        if (result) {
+          token.color = result.color;
+          token.name = result.name;
+          token.scope = result.scope;
+          token.isBold = result.isBold;
+          token.isItalic = result.isItalic;
+          token.isUnderline = result.isUnderline;
+        }
+      }
+    );
   }
 
   private updateDataSource() {
