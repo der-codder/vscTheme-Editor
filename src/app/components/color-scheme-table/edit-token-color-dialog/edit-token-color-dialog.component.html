@@ -1,4 +1,6 @@
-<h1 mat-dialog-title>Token editor</h1>
+<app-readability-view
+  [readability]="editableToken.readability"
+  [compactView]="false"></app-readability-view>
 <div mat-dialog-content>
   <section>
     <app-token-editor [token]="editableToken"></app-token-editor>

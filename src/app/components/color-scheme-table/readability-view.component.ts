@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 interface Range {
   min: number;
@@ -26,14 +26,14 @@ const ReadabilityLevels: ReadabilityLevel[] = [
     name: 'aa-large',
     color: '#e69900',
     class: 'visibility',
-    message: 'Passes AA for large text (above 18pt or bold above 14pt)'
+    message: 'Passes AA for large text'
   },
   {
     range: { min: 4.5, max: 7},
     name: 'aa',
     color: '#8ab82e',
     class: 'visibility',
-    message: 'Passes AA level for any size text and AAA for large text (above 18pt or bold above 14pt)'
+    message: 'Passes AA level for any size text and AAA for large text'
   },
   {
     range: { min: 7, max: 22},
@@ -47,21 +47,42 @@ const ReadabilityLevels: ReadabilityLevel[] = [
 @Component({
   selector: 'app-readability-view',
   template: `
-    <mat-icon
-      class="mat-icon material-icons"
-      [ngStyle]="{'color': readabilityLevel.color}"
-      [matTooltip]="readabilityLevel.message">{{ readabilityLevel.class }}</mat-icon>
-    <h1>{{readability | number:'1.0-1'}}</h1>
+    <div *ngIf="compactView; else elseBlock">
+      <mat-icon
+        class="mat-icon material-icons"
+        [ngStyle]="{'color': readabilityLevel.color}"
+        [matTooltip]="readabilityLevel.message">
+        {{ readabilityLevel.class }}
+      </mat-icon>
+      <h1>{{readability | number:'1.0-1'}}</h1>
+    </div>
+    <ng-template #elseBlock>
+      Readability:
+      <h1>
+        <mat-icon
+          class="mat-icon material-icons"
+          [ngStyle]="{'color': readabilityLevel.color}">
+          {{ readabilityLevel.class }}
+        </mat-icon>
+        {{readability | number:'1.0-1'}}
+      </h1>
+      <span class="mat-hint">{{ readabilityLevel.message }}</span>
+    </ng-template>
   `,
   styles: [`
     h1 {
       display: inline;
       margin-left: 10px;
     }
-  `
-  ]
+    span {
+      margin-left: 10px;
+    }
+  `]
 })
-export class ReadabilityViewComponent implements OnInit {
+export class ReadabilityViewComponent {
+  @Input()
+  compactView = true;
+
   private _readability: number;
   get readability(): number {
     return this._readability;
@@ -78,8 +99,4 @@ export class ReadabilityViewComponent implements OnInit {
       }
     }
   }
-
-  constructor() {}
-
-  ngOnInit() {}
 }
