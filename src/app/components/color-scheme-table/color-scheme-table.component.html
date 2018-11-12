@@ -51,8 +51,8 @@
         <mat-checkbox [checked]="element.isModified">
         </mat-checkbox>
 
-        <button mat-icon-button class="cell-button">
-          <mat-icon (click)="editTokenColor(element)" matTooltip="Edit">edit</mat-icon>
+        <button mat-icon-button class="cell-button" color="primary" (click)="editTokenColor(element)">
+          <mat-icon fontSet="mdi" fontIcon="mdi-square-edit-outline" matTooltip="Edit"></mat-icon>
         </button>
 
       </mat-cell>

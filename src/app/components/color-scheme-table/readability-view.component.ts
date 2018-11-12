@@ -9,7 +9,7 @@ interface ReadabilityLevel {
   range: Range;
   name: string;
   color: string;
-  class: string;
+  icon: string;
   message: string;
 }
 
@@ -18,28 +18,28 @@ const ReadabilityLevels: ReadabilityLevel[] = [
     range: { min: 0, max: 3},
     name: 'fail',
     color: '#c00',
-    class: 'visibility_off',
+    icon: 'mdi-eye-off-outline',
     message: 'Fails WCAG 2.0 :-('
   },
   {
     range: { min: 3, max: 4.5},
     name: 'aa-large',
     color: '#e69900',
-    class: 'visibility',
+    icon: 'mdi-eye-outline',
     message: 'Passes AA for large text'
   },
   {
     range: { min: 4.5, max: 7},
     name: 'aa',
     color: '#8ab82e',
-    class: 'visibility',
+    icon: 'mdi-eye-outline',
     message: 'Passes AA level for any size text and AAA for large text'
   },
   {
     range: { min: 7, max: 22},
     name: 'aaa',
     color: '#5ea72a',
-    class: 'visibility',
+    icon: 'mdi-eye',
     message: 'Passes AAA level for any size text'
   }
 ];
@@ -49,10 +49,10 @@ const ReadabilityLevels: ReadabilityLevel[] = [
   template: `
     <div *ngIf="compactView; else elseBlock">
       <mat-icon
-        class="mat-icon material-icons"
+        fontSet="mdi"
+        [fontIcon]="readabilityLevel.icon"
         [ngStyle]="{'color': readabilityLevel.color}"
         [matTooltip]="readabilityLevel.message">
-        {{ readabilityLevel.class }}
       </mat-icon>
       <h1>{{readability | number:'1.0-1'}}</h1>
     </div>
@@ -60,9 +60,10 @@ const ReadabilityLevels: ReadabilityLevel[] = [
       Readability:
       <h1>
         <mat-icon
-          class="mat-icon material-icons"
-          [ngStyle]="{'color': readabilityLevel.color}">
-          {{ readabilityLevel.class }}
+          fontSet="mdi"
+          [fontIcon]="readabilityLevel.icon"
+          [ngStyle]="{'color': readabilityLevel.color}"
+          [matTooltip]="readabilityLevel.message">
         </mat-icon>
         {{readability | number:'1.0-1'}}
       </h1>
@@ -72,9 +73,6 @@ const ReadabilityLevels: ReadabilityLevel[] = [
   styles: [`
     h1 {
       display: inline;
-      margin-left: 10px;
-    }
-    span {
       margin-left: 10px;
     }
   `]

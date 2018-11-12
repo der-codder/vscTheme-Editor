@@ -14,7 +14,9 @@ import {
   MatCheckboxModule,
   MatDialogModule,
   MatSliderModule,
-  MatTabsModule
+  MatTabsModule,
+  MatMenuModule,
+  MatIconRegistry
 } from '@angular/material';
 
 import { AppComponent } from './components/app/app.component';
@@ -60,7 +62,8 @@ import { PickColorDirective } from './components/color-picker/hex-editor/pick-co
     MatCheckboxModule,
     MatDialogModule,
     MatSliderModule,
-    MatTabsModule
+    MatTabsModule,
+    MatMenuModule
   ],
   providers: [
     SharedService,
@@ -69,4 +72,7 @@ import { PickColorDirective } from './components/color-picker/hex-editor/pick-co
   entryComponents: [EditTokenColorDialogComponent],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(matIconRegistry: MatIconRegistry) {
+    matIconRegistry.registerFontClassAlias('materialdesignicons', 'mdi');
+  }}
