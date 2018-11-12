@@ -1,3 +1,54 @@
 <mat-toolbar color="primary">
-  <span>vscTheme Editor</span>
+  <img class="logo" src="assets/images/logo.svg">
+  <button mat-icon-button>
+    <!-- <mat-icon fontSet="mdi" fontIcon="mdi-menu"></mat-icon> -->
+    <mat-icon fontSet="mdi" fontIcon="mdi-backburger"></mat-icon>
+  </button>
+  <button mat-button [matMenuTriggerFor]="menu">
+    Open<mat-icon fontSet="mdi" fontIcon="mdi-menu-down"></mat-icon>
+  </button>
+  <mat-menu #menu="matMenu" yPosition="below" [overlapTrigger]="false">
+    <button mat-menu-item (click)="openLocalFile()">
+      <mat-icon fontSet="mdi" fontIcon="mdi-upload"></mat-icon>
+      <span>local file...</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon fontSet="mdi" fontIcon="mdi-cloud-upload"></mat-icon>
+      <span>from URL...</span>
+    </button>
+  </mat-menu>
+  <button mat-button>
+    <mat-icon fontSet="mdi" fontIcon="mdi-content-save"></mat-icon>
+    Save
+  </button>
+  <button mat-button>
+    <mat-icon fontSet="mdi" fontIcon="mdi-arrow-down-bold-box"></mat-icon>
+    Save as...
+  </button>
+
+  <span class="fill-remaining-space"></span>
+
+  <button mat-button [matMenuTriggerFor]="menuOptions">
+    <mat-icon fontSet="mdi" fontIcon="mdi-settings"></mat-icon>
+    <mat-icon fontSet="mdi" fontIcon="mdi-menu-down"></mat-icon>
+  </button>
+  <mat-menu #menuOptions="matMenu" yPosition="below" [overlapTrigger]="false">
+    <button mat-menu-item>
+      <mat-icon color="accent" fontSet="mdi" fontIcon="mdi-delete-empty"></mat-icon>
+      <span>Clear cash</span>
+    </button>
+    <hr>
+    <a mat-menu-item target="_blank" href="https://github.com/der-codder/vscTheme-Editor#vsctheme-editor">
+      <mat-icon fontSet="mdi" fontIcon="mdi-information-outline"></mat-icon>
+      <span>About</span>
+    </a>
+    <a mat-menu-item target="_blank" href="https://github.com/der-codder/vscTheme-Editor/issues/new">
+      <mat-icon fontSet="mdi" fontIcon="mdi-tooltip-text"></mat-icon>
+      <span>Feedback</span>
+    </a>
+    <a mat-menu-item target="_blank" href="https://github.com/der-codder/vscTheme-Editor">
+      <mat-icon fontSet="mdi" fontIcon="mdi-github-circle"></mat-icon>
+      <span>Github</span>
+    </a>
+  </mat-menu>
 </mat-toolbar>

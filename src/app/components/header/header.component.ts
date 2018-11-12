@@ -6,7 +6,17 @@ import { SharedService } from '../../services/shared.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styles: [``]
+  styles: [`
+    .logo {
+      padding-right: 10px;
+      width: 36px;
+      height: 36px;
+    }
+
+    .fill-remaining-space {
+      flex: 1 1 auto;
+    }
+  `]
 })
 export class HeaderComponent implements OnInit {
 
@@ -20,4 +30,5 @@ export class HeaderComponent implements OnInit {
     //   );
   }
 
+  openLocalFile() {}
 }
