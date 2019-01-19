@@ -37,11 +37,11 @@ export class HeaderComponent implements OnInit {
   }
 
   openLocalFile(file: File) {
-    // this.data.fileName = file.name.replace('.json', '');
-
     const reader = new FileReader();
     reader.onload = () => {
-      this.sharedService.colorScheme = ColorScheme.fromJsonString(reader.result as string);
+      const colorScheme = ColorScheme.fromJsonString(reader.result as string);
+      colorScheme.fileName = file.name;
+      this.sharedService.colorScheme = colorScheme;
     };
     reader.readAsText(file);
   }

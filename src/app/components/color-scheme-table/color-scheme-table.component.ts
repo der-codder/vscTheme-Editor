@@ -76,7 +76,14 @@ export class ColorSchemeTableComponent implements OnInit, OnDestroy {
   private updateDataSource() {
     this.dataSource = new MatTableDataSource(this.sharedService.colorScheme.tokenColors);
     this.dataSource.sort = this.sort;
-    this.themeName = this.sharedService.colorScheme.name;
+    if (this.sharedService.colorScheme.name !== undefined &&
+      this.sharedService.colorScheme.name !== null &&
+      this.sharedService.colorScheme.name !== ''
+    ) {
+      this.themeName = this.sharedService.colorScheme.name;
+    } else {
+      this.themeName = this.sharedService.colorScheme.fileName;
+    }
     this.status = `${this.sharedService.colorScheme.tokenColors.length.toString()} tokens, ${this.getColorsAmount()} unique colors`;
   }
 

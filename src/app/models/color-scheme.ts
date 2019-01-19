@@ -5,6 +5,10 @@ import { TokenColor } from './token-color';
 
 export class ColorScheme {
   /**
+   * Name of the color theme file
+   */
+  fileName: string;
+  /**
    * Name of the color theme
    */
   name: string;
