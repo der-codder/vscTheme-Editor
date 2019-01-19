@@ -8,7 +8,11 @@
     Open<mat-icon fontSet="mdi" fontIcon="mdi-menu-down"></mat-icon>
   </button>
   <mat-menu #menu="matMenu" yPosition="below" [overlapTrigger]="false">
-    <button mat-menu-item (click)="openLocalFile()">
+    <input #fileInput type="file" accept=".json"
+      (change)="openLocalFile($event.target.files[0])"
+      (click)="this.fileInput.value = null"
+      tabindex="-1" style="display:none">
+    <button mat-menu-item (click)="fileInput.click()">
       <mat-icon fontSet="mdi" fontIcon="mdi-upload"></mat-icon>
       <span>local file...</span>
     </button>

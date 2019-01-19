@@ -25,7 +25,8 @@ export class ColorScheme {
    * Converts provided json string into the ColorScheme.
    */
   static fromJsonString(json: string): ColorScheme {
-    const jsonObj = JSON.parse(stripJsonComments(json));
+    const cleanJson = stripJsonComments(json);
+    const jsonObj = JSON.parse(cleanJson);
     const colorScheme = new ColorScheme();
 
     colorScheme.name = jsonObj.name;
