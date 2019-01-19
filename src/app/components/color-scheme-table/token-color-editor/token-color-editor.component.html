@@ -1,7 +1,4 @@
 <div class="button-row">
-  <button mat-icon-button color="primary" (click)="darken()">
-    <mat-icon fontSet="mdi" fontIcon="mdi-brightness-7" matTooltip="Darken the color."></mat-icon>
-  </button>
   <input
     class="monospaced color-editor-input"
     [style.background-color]="backgroundColor"
@@ -10,7 +7,7 @@
     (input)="changeColor($event)"
     (focus)="onInputFocus()"
     (blur)="onInputBlur()">
-  <button mat-icon-button color="primary" (click)="lighten()">
-    <mat-icon fontSet="mdi" fontIcon="mdi-brightness-5" matTooltip="Lighten the color."></mat-icon>
+  <button mat-icon-button color="primary" (click)="editColor()">
+    <mat-icon fontSet="mdi" fontIcon="mdi-palette" matTooltip="Edit the color."></mat-icon>
   </button>
 </div>

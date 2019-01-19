@@ -29,12 +29,7 @@ export class TokenColorEditorComponent {
   hexValue: string;
 
 
-  lighten() {
-    this.color = this.color.lighten(this.modificationStep);
-  }
-
-  darken() {
-    this.color = this.color.darken(this.modificationStep);
+  editColor() {
   }
 
   changeColor($event) {
