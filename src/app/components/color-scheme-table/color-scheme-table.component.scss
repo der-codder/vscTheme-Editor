@@ -1,0 +1,28 @@
+.table-header {
+  min-height: 64px;
+  padding: 8px 24px 0;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+table {
+  width: 100%;
+}
+
+mat-checkbox {
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.mat-column-readability,
+.mat-column-modified,
+.mat-column-edit {
+  max-width: 30px;
+}

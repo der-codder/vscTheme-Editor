@@ -8,26 +8,10 @@ import { TokenColor } from '../../models/token-color';
 @Component({
   selector: 'app-color-scheme-table',
   templateUrl: './color-scheme-table.component.html',
-  styles: [`
-    mat-checkbox {
-      margin-right: 15px;
-      margin-left: 15px;
-    }
-    .table-header {
-      min-height: 64px;
-      padding: 8px 24px 0;
-    }
-    .mat-form-field {
-      font-size: 14px;
-      width: 100%;
-    }
-    .spacer {
-      flex: 1 1 auto;
-    }
-  `]
+  styleUrls: ['./color-scheme-table.component.scss']
 })
 export class ColorSchemeTableComponent implements OnInit, OnDestroy {
-  displayedColumns = ['readability', 'color', 'name', 'scope', 'modified'];
+  displayedColumns = ['readability', 'color', 'name', 'scope', 'modified', 'edit'];
   dataSource: any;
   themeName: string;
   status: string;
@@ -38,7 +22,7 @@ export class ColorSchemeTableComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.updateDataSource();
-    this.sharedService.colorSchemeChange.subscribe(data => this.updateDataSource());
+    this.sharedService.colorSchemeChange.subscribe(() => this.updateDataSource());
   }
 
   ngOnDestroy() {
@@ -52,25 +36,25 @@ export class ColorSchemeTableComponent implements OnInit, OnDestroy {
   }
 
   editTokenColor(token: TokenColor): void {
-    const dialogRef = this.dialog.open(
-      EditTokenColorDialogComponent,
-      {
-        data: { originalTokenColor: token }
-      }
-    );
+    const dialogRef = this.dialog
+      .open(
+        EditTokenColorDialogComponent,
+        { data: { originalTokenColor: token } }
+      );
 
-    dialogRef.afterClosed().subscribe(
-      result => {
-        if (result) {
-          token.color = result.color;
-          token.name = result.name;
-          token.scope = result.scope;
-          token.isBold = result.isBold;
-          token.isItalic = result.isItalic;
-          token.isUnderline = result.isUnderline;
+    dialogRef.afterClosed()
+      .subscribe(
+        result => {
+          if (result) {
+            token.color = result.color;
+            token.name = result.name;
+            token.scope = result.scope;
+            token.isBold = result.isBold;
+            token.isItalic = result.isItalic;
+            token.isUnderline = result.isUnderline;
+          }
         }
-      }
-    );
+      );
   }
 
   private updateDataSource() {
