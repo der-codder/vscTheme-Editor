@@ -16,7 +16,7 @@
       <mat-icon fontSet="mdi" fontIcon="mdi-upload"></mat-icon>
       <span>local file...</span>
     </button>
-    <button mat-menu-item>
+    <button mat-menu-item (click)="onOpenFromUrlClicked()">
       <mat-icon fontSet="mdi" fontIcon="mdi-cloud-upload"></mat-icon>
       <span>from URL...</span>
     </button>

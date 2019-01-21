@@ -1,5 +1,5 @@
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
@@ -32,6 +32,7 @@ import { EditTokenColorDialogComponent } from './components/color-scheme-table/e
 import { ColorPickerComponent } from './components/color-picker/color-picker.component';
 import { HexEditorComponent } from './components/color-picker/hex-editor/hex-editor.component';
 import { PickColorDirective } from './components/color-picker/hex-editor/pick-color.directive';
+import { OpenFromWebDialogComponent } from './components/header/open-from-web-dialog.component';
 
 @NgModule({
   declarations: [
@@ -45,12 +46,14 @@ import { PickColorDirective } from './components/color-picker/hex-editor/pick-co
     TokenEditorComponent,
     ColorPickerComponent,
     HexEditorComponent,
-    PickColorDirective
+    PickColorDirective,
+    OpenFromWebDialogComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     MatToolbarModule,
     MatInputModule,
@@ -69,7 +72,10 @@ import { PickColorDirective } from './components/color-picker/hex-editor/pick-co
     SharedService,
     DataService
   ],
-  entryComponents: [EditTokenColorDialogComponent],
+  entryComponents: [
+    EditTokenColorDialogComponent,
+    OpenFromWebDialogComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -3,7 +3,8 @@ import { MatDialog } from '@angular/material';
 
 import { DataService } from '../../services/data.service';
 import { SharedService } from '../../services/shared.service';
-import { ColorScheme } from 'src/app/models/color-scheme';
+import { ColorScheme } from '../../models/color-scheme';
+import { OpenFromWebDialogComponent } from './open-from-web-dialog.component';
 
 @Component({
   selector: 'app-header',
@@ -44,5 +45,15 @@ export class HeaderComponent implements OnInit {
       this.sharedService.colorScheme = colorScheme;
     };
     reader.readAsText(file);
+  }
+
+  onOpenFromUrlClicked() {
+    const dialogRef = this.dialog.open(
+      OpenFromWebDialogComponent,
+      { width: '500px' }
+    );
+
+    dialogRef.afterClosed()
+      .subscribe(result => console.log(result));
   }
 }
