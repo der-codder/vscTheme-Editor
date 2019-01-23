@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material';
 
 import { DataService } from '../../services/data.service';
 import { SharedService } from '../../services/shared.service';
-import { ColorScheme } from '../../models/color-scheme';
 import { OpenFromWebDialogComponent } from './open-from-web-dialog.component';
 
 @Component({
@@ -21,7 +20,7 @@ import { OpenFromWebDialogComponent } from './open-from-web-dialog.component';
     }
   `]
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
 
   constructor(
     public dialog: MatDialog,
@@ -29,22 +28,17 @@ export class HeaderComponent implements OnInit {
     private sharedService: SharedService
   ) { }
 
-  ngOnInit() {
-    // this.dataService.downloadColorScheme('assets/aurelium-color-theme.json')
-    //   .subscribe(
-    //     data => this.sharedService.colorScheme = data,
-    //     err => console.error(err)
-    //   );
-  }
-
   openLocalFile(file: File) {
-    const reader = new FileReader();
-    reader.onload = () => {
-      const colorScheme = ColorScheme.fromJsonString(reader.result as string);
-      colorScheme.fileName = file.name;
-      this.sharedService.colorScheme = colorScheme;
-    };
-    reader.readAsText(file);
+    this.dataService.readLocalColorScheme(file)
+      .subscribe(
+        colorScheme => {
+          colorScheme.fileName = file.name;
+          this.sharedService.colorScheme = colorScheme;
+        },
+        err => {
+          console.error(err);
+        }
+      );
   }
 
   onOpenFromUrlClicked() {
@@ -54,6 +48,14 @@ export class HeaderComponent implements OnInit {
     );
 
     dialogRef.afterClosed()
-      .subscribe(result => console.log(result));
+      .subscribe(result => {
+        console.log(result);
+        this.dataService
+          .downloadColorScheme(result)
+          .subscribe(
+            data => this.sharedService.colorScheme = data,
+            err => console.error(err)
+          );
+      });
   }
 }
