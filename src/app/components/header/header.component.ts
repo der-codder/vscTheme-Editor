@@ -56,7 +56,10 @@ export class HeaderComponent {
         this.dataService
           .downloadColorScheme(result)
           .subscribe(
-            data => this.sharedService.colorScheme = data,
+            data => {
+              this.sharedService.colorScheme = data;
+              this.sharedService.colorSchemeLoading = false;
+            },
             err => {
               console.error(err);
               this.sharedService.colorSchemeLoading = false;
