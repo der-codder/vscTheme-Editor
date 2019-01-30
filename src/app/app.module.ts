@@ -20,7 +20,7 @@ import {
   MatProgressSpinnerModule
 } from '@angular/material';
 
-import { AppComponent } from './components/app/app.component';
+import { AppComponent } from './app.component';
 import { ArrayToString } from './shared/array-to-string.pipe';
 import { SharedService } from './services/shared.service';
 import { DataService } from './services/data.service';

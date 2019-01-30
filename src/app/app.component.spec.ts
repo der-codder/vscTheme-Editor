@@ -18,10 +18,10 @@ import {
 } from '@angular/material';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from '../header/header.component';
-import { ColorSchemeTableComponent } from '../color-scheme-table/color-scheme-table.component';
-import { ReadabilityViewComponent } from '../color-scheme-table/readability-view.component';
-import { TokenColorEditorComponent } from '../color-scheme-table/token-color-editor/token-color-editor.component';
+import { HeaderComponent } from './components/header/header.component';
+import { ColorSchemeTableComponent } from './components/color-scheme-table/color-scheme-table.component';
+import { ReadabilityViewComponent } from './components/color-scheme-table/readability-view.component';
+import { TokenColorEditorComponent } from './components/color-scheme-table/token-color-editor/token-color-editor.component';
 import { ArrayToString } from 'src/app/shared/array-to-string.pipe';
 import { DataService } from 'src/app/services/data.service';
 import { SharedService } from 'src/app/services/shared.service';

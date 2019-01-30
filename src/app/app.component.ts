@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import * as tinycolor from 'tinycolor2';
 
-import { TokenColor } from 'src/app/models/token-color';
+import { TokenColor } from './models/token-color';
 
 @Component({
   selector: 'app-root',
