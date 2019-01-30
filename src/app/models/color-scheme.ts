@@ -56,6 +56,9 @@ export class ColorScheme {
     const tokenColor = new TokenColor(background, tinycolor(jsonObj.settings.foreground));
     tokenColor.name = jsonObj.name;
     tokenColor.scope = jsonObj.scope;
+    if (typeof jsonObj.scope === 'string') {
+      tokenColor.scope = jsonObj.scope.replace(/\s/g, '').replace(/,/g, ', ');
+    }
 
     return tokenColor;
   }
