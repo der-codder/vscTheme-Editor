@@ -7,6 +7,9 @@ import { TokenColor } from '../models/token-color';
 
 @Injectable()
 export class SharedService {
+  colorSchemeLoading = true;
+  testTheme: ColorScheme;
+
   private _colorScheme: ColorScheme;
   get colorScheme(): ColorScheme {
     return this._colorScheme;
@@ -19,40 +22,51 @@ export class SharedService {
   colorSchemeChange = new EventEmitter<ColorScheme>();
 
   constructor(private http: HttpClient) {
-    this.colorScheme = new ColorScheme();
-    this.colorScheme.name = 'Test Theme';
-    this.colorScheme.editorBackground = tinycolor('#fffffe');
+    this.testTheme = new ColorScheme();
+    this.testTheme.name = 'Test Theme';
+    this.testTheme.editorBackground = tinycolor('#fffffe');
 
-    const token1 = new TokenColor(this.colorScheme.editorBackground, tinycolor('#ffffff'));
+    const token1 = new TokenColor(this.testTheme.editorBackground, tinycolor('#ffffff'));
     token1.name = 'fail';
     token1.scope = 'scope';
 
-    const token2 = new TokenColor(this.colorScheme.editorBackground, tinycolor('#949494'));
+    const token2 = new TokenColor(this.testTheme.editorBackground, tinycolor('#949494'));
     token2.name = 'aa-large';
     token2.scope = ['scope1', 'scope2'];
 
-    const token3 = new TokenColor(this.colorScheme.editorBackground, tinycolor('#767676'));
+    const token3 = new TokenColor(this.testTheme.editorBackground, tinycolor('#767676'));
     token3.name = 'aa';
     token3.scope = ['scope1', 'scope2', 'scope3'];
 
-    const token4 = new TokenColor(this.colorScheme.editorBackground, tinycolor('#000000'));
+    const token4 = new TokenColor(this.testTheme.editorBackground, tinycolor('#000000'));
     token4.name = 'aaa';
     token4.scope = ['scope1', 'scope2', 'scope3', 'scope4'];
 
-    const token5 = new TokenColor(tinycolor('#000000'), tinycolor('#000000'));
-    token5.name = 'black on black';
-    token5.scope = ['scope1', 'scope2', 'scope3', 'scope4'];
+    const token5 = new TokenColor(this.testTheme.editorBackground, tinycolor('#000000'));
+    token5.name = 'long scope';
+    token5.scope = [
+      'scope1', 'scope2', 'scope3', 'scope4', 'scope1', 'scope2', 'scope3', 'scope4',
+      'scope1', 'scope2', 'scope3', 'scope4', 'scope1', 'scope2', 'scope3', 'scope4',
+      'scope1', 'scope2', 'scope3', 'scope4', 'scope1', 'scope2', 'scope3', 'scope4'
+    ];
 
-    const token6 = new TokenColor(tinycolor('#000000'), tinycolor('#ffffff'));
-    token6.name = 'white on black';
+    const token6 = new TokenColor(tinycolor('#000000'), tinycolor('#000000'));
+    token6.name = 'black on black';
     token6.scope = ['scope1', 'scope2', 'scope3', 'scope4'];
 
-    const token7 = new TokenColor(this.colorScheme.editorBackground, tinycolor('#ffffff'));
-    token7.name = 'modified';
-    token7.scope = 'scope';
-    token7.color = tinycolor('#ff0000');
+    const token7 = new TokenColor(tinycolor('#000000'), tinycolor('#ffffff'));
+    token7.name = 'white on black';
+    token7.scope = ['scope1', 'scope2', 'scope3', 'scope4'];
 
-    this.colorScheme.tokenColors = [token1, token2, token3, token4, token5, token6, token7];
+    const token8 = new TokenColor(this.testTheme.editorBackground, tinycolor('#ffffff'));
+    token8.name = 'modified';
+    token8.scope = 'scope';
+    token8.color = tinycolor('#ff0000');
+
+    this.testTheme.tokenColors = [token1, token2, token3, token4, token5, token6, token7, token8];
+
+    this.colorScheme = this.testTheme;
+    this.colorSchemeLoading = false;
   }
 
   // public getTheme(url: string) {

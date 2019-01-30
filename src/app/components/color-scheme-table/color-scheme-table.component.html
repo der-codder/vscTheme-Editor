@@ -1,4 +1,4 @@
-<div class="mat-elevation-z8">
+<div class="mat-elevation-z8" *ngIf="!sharedService.colorSchemeLoading; else elseBlock">
   <mat-toolbar>
     <mat-toolbar-row>
       <span>{{themeName}}</span>
@@ -64,3 +64,11 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"><tr>
   </table>
 </div>
+
+<ng-template #elseBlock>
+  <div class="cdk-overlay-backdrop cdk-overlay-dark-backdrop cdk-overlay-backdrop-showing">
+    <div class="spinner-container">
+      <mat-spinner></mat-spinner>
+    </div>
+  </div>
+</ng-template>

@@ -1,3 +1,11 @@
+.spinner-container {
+  min-height: 300px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .table-header {
   min-height: 64px;
   padding: 8px 24px 0;
@@ -16,17 +24,45 @@ mat-checkbox {
   margin-left: 15px;
 }
 
+.mat-table__wrapper .mat-table {
+  min-width: auto !important;
+  width: 100% !important;
+}
+
+.mat-header-row {
+  width: 100%;
+}
+
+.mat-row {
+  width: 100%;
+}
+
 .mat-form-field {
   font-size: 14px;
   width: 100%;
 }
 
-.mat-column-readability,
-.mat-column-modified,
-.mat-column-edit {
-  max-width: 30px;
+.mat-column-readability {
+  flex: 0 0 15% !important;
+  min-width: 85px !important;
 }
-
 .mat-column-color {
-  max-width: 50px;
+  flex: 0 0 15% !important;
+  min-width: 130px !important;
+}
+.mat-column-name {
+  flex: 0 0 20% !important;
+  min-width: 130px !important;
+}
+.mat-column-scope {
+  flex: 0 0 30% !important;
+  min-width: 450px !important;
+}
+.mat-column-modified {
+  flex: 0 0 10% !important;
+  min-width: 60px !important;
+}
+.mat-column-edit {
+  flex: 0 0 10% !important;
+  min-width: 40px !important;
 }

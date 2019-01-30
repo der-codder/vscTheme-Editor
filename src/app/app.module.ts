@@ -16,7 +16,8 @@ import {
   MatSliderModule,
   MatTabsModule,
   MatMenuModule,
-  MatIconRegistry
+  MatIconRegistry,
+  MatProgressSpinnerModule
 } from '@angular/material';
 
 import { AppComponent } from './components/app/app.component';
@@ -66,7 +67,8 @@ import { OpenFromWebDialogComponent } from './components/header/open-from-web-di
     MatDialogModule,
     MatSliderModule,
     MatTabsModule,
-    MatMenuModule
+    MatMenuModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     SharedService,

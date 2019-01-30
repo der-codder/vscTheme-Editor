@@ -29,14 +29,17 @@ export class HeaderComponent {
   ) { }
 
   openLocalFile(file: File) {
+    this.sharedService.colorSchemeLoading = true;
     this.dataService.readLocalColorScheme(file)
       .subscribe(
         colorScheme => {
           colorScheme.fileName = file.name;
           this.sharedService.colorScheme = colorScheme;
+          this.sharedService.colorSchemeLoading = false;
         },
         err => {
           console.error(err);
+          this.sharedService.colorSchemeLoading = false;
         }
       );
   }
@@ -49,12 +52,15 @@ export class HeaderComponent {
 
     dialogRef.afterClosed()
       .subscribe(result => {
-        console.log(result);
+        this.sharedService.colorSchemeLoading = true;
         this.dataService
           .downloadColorScheme(result)
           .subscribe(
             data => this.sharedService.colorScheme = data,
-            err => console.error(err)
+            err => {
+              console.error(err);
+              this.sharedService.colorSchemeLoading = false;
+            }
           );
       });
   }

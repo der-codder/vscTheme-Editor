@@ -18,7 +18,7 @@ export class ColorSchemeTableComponent implements OnInit, OnDestroy {
 
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private sharedService: SharedService, public dialog: MatDialog) {}
+  constructor(public sharedService: SharedService, public dialog: MatDialog) { }
 
   ngOnInit() {
     this.updateDataSource();
@@ -58,6 +58,14 @@ export class ColorSchemeTableComponent implements OnInit, OnDestroy {
   }
 
   private updateDataSource() {
+    if (!this.sharedService.colorScheme) {
+      this.dataSource = new MatTableDataSource();
+      this.themeName = '';
+      this.status = '';
+
+      return;
+    }
+
     this.dataSource = new MatTableDataSource(this.sharedService.colorScheme.tokenColors);
     this.dataSource.sort = this.sort;
     if (this.sharedService.colorScheme.name !== undefined &&
@@ -68,7 +76,8 @@ export class ColorSchemeTableComponent implements OnInit, OnDestroy {
     } else {
       this.themeName = this.sharedService.colorScheme.fileName;
     }
-    this.status = `${this.sharedService.colorScheme.tokenColors.length.toString()} tokens, ${this.getColorsAmount()} unique colors`;
+    const tokenColorsLength = this.sharedService.colorScheme.tokenColors.length.toString();
+    this.status = `${tokenColorsLength} tokens, ${this.getColorsAmount()} unique colors`;
   }
 
   private getColorsAmount() {

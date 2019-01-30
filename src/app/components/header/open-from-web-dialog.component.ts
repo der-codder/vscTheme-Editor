@@ -19,11 +19,13 @@ import { HeaderComponent } from './header.component';
       <button mat-button (click)="onCancelClicked()" cdkFocusInitial>Cancel</button>
     </div>
   `,
-  styles: []
+  styles: [`
+    mat-form-field { width: 100%; }
+  `]
 })
 export class OpenFromWebDialogComponent {
   urlFormControl = new FormControl(
-    '',
+    'https://raw.githubusercontent.com/Binaryify/OneDark-Pro/master/themes/OneDark-Pro.json',
     [Validators.required, Validators.pattern(/^(http|https):\/\/[^ "]+$/)]
   );
 
