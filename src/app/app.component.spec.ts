@@ -14,7 +14,9 @@ import {
   MatTooltipModule,
   MatDialogModule,
   MatSliderModule,
-  MatTabsModule
+  MatTabsModule,
+  MatMenuModule,
+  MatProgressSpinnerModule
 } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -44,7 +46,9 @@ describe('AppComponent', () => {
         MatCheckboxModule,
         MatDialogModule,
         MatSliderModule,
-        MatTabsModule
+        MatTabsModule,
+        MatMenuModule,
+        MatProgressSpinnerModule
       ],
       declarations: [
         ArrayToString,
