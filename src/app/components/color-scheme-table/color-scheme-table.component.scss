@@ -42,27 +42,10 @@ mat-checkbox {
   width: 100%;
 }
 
-// .mat-column-readability {
-//   flex: 0 0 15% !important;
-//   min-width: 85px !important;
-// }
-// .mat-column-color {
-//   flex: 0 0 15% !important;
-//   min-width: 130px !important;
-// }
-.mat-column-name {
-  flex: 0 0 20% !important;
-  min-width: 130px !important;
-}
-.mat-column-scope {
-  flex: 0 0 30% !important;
-  min-width: 450px !important;
-}
-.mat-column-modified {
-  flex: 0 0 10% !important;
-  min-width: 60px !important;
-}
-.mat-column-edit {
-  flex: 0 0 10% !important;
-  min-width: 40px !important;
+td span {
+  display: inline-block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 200px;
 }

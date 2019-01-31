@@ -43,12 +43,9 @@ export class SharedService {
     token4.scope = ['scope1', 'scope2', 'scope3', 'scope4'];
 
     const token5 = new TokenColor(this.testTheme.editorBackground, tinycolor('#000000'));
-    token5.name = 'long scope';
-    token5.scope = [
-      'scope1', 'scope2', 'scope3', 'scope4', 'scope1', 'scope2', 'scope3', 'scope4',
-      'scope1', 'scope2', 'scope3', 'scope4', 'scope1', 'scope2', 'scope3', 'scope4',
-      'scope1', 'scope2', 'scope3', 'scope4', 'scope1', 'scope2', 'scope3', 'scope4'
-    ];
+    token5.name = 'modified';
+    token5.scope = 'scope';
+    token5.color = tinycolor('#ff0000');
 
     const token6 = new TokenColor(tinycolor('#000000'), tinycolor('#000000'));
     token6.name = 'black on black';
@@ -59,11 +56,16 @@ export class SharedService {
     token7.scope = ['scope1', 'scope2', 'scope3', 'scope4'];
 
     const token8 = new TokenColor(this.testTheme.editorBackground, tinycolor('#ffffff'));
-    token8.name = 'modified';
-    token8.scope = 'scope';
-    token8.color = tinycolor('#ff0000');
+    token8.name = 'long scope';
+    token8.scope = 'very very very very very very very very very very very very very very long scope';
 
-    this.testTheme.tokenColors = [token1, token2, token3, token4, token5, token6, token7, token8];
+    const token9 = new TokenColor(this.testTheme.editorBackground, tinycolor('#ffffff'));
+    token9.name = 'very very very very very very very very very very very very very very long name';
+    token9.scope = 'very very very very very very very very very very very very very very long scope';
+
+    this.testTheme.tokenColors = [
+      token1, token2, token3, token4, token5, token6, token7, token8, token9
+    ];
 
     this.colorScheme = this.testTheme;
     this.colorSchemeLoading = false;

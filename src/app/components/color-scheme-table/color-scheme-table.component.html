@@ -33,13 +33,17 @@
     <!-- Name Column -->
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      <td mat-cell *matCellDef="let element">
+        <span>{{element.name}}</span>
+      </td>
     </ng-container>
 
     <!-- Scope Column -->
     <ng-container matColumnDef="scope">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Scope </th>
-      <td mat-cell *matCellDef="let element"> {{element.scope | arrayToString}} </td>
+      <td mat-cell *matCellDef="let element">
+        <span>{{element.scope | arrayToString}}</span>
+      </td>
     </ng-container>
 
     <!-- Modified Column -->
