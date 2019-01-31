@@ -1,4 +1,4 @@
-import { Component, ViewChild, OnInit, OnDestroy } from '@angular/core';
+import { Component, ViewChild, Input } from '@angular/core';
 import { MatTableDataSource, MatSort, MatDialog } from '@angular/material';
 
 import { SharedService } from '../../services/shared.service';
@@ -10,24 +10,19 @@ import { TokenColor } from '../../models/token-color';
   templateUrl: './color-scheme-table.component.html',
   styleUrls: ['./color-scheme-table.component.scss']
 })
-export class ColorSchemeTableComponent implements OnInit, OnDestroy {
+export class ColorSchemeTableComponent {
   displayedColumns = ['readability', 'color', 'name', 'scope', 'modified', 'edit'];
-  dataSource: any;
-  themeName: string;
-  status: string;
+  dataSource: MatTableDataSource<TokenColor>;
+
+  @Input()
+  set tokenColors(value: TokenColor[]) {
+    this.dataSource = new MatTableDataSource(value);
+    this.dataSource.sort = this.sort;
+  }
 
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(public sharedService: SharedService, public dialog: MatDialog) { }
-
-  ngOnInit() {
-    this.updateDataSource();
-    this.sharedService.colorSchemeChange.subscribe(() => this.updateDataSource());
-  }
-
-  ngOnDestroy() {
-    this.sharedService.colorSchemeChange.unsubscribe();
-  }
 
   applyFilter(filterValue: string) {
     filterValue = filterValue.trim(); // Remove whitespace
@@ -55,41 +50,6 @@ export class ColorSchemeTableComponent implements OnInit, OnDestroy {
           }
         }
       );
-  }
-
-  private updateDataSource() {
-    if (!this.sharedService.colorScheme) {
-      this.dataSource = new MatTableDataSource();
-      this.themeName = '';
-      this.status = '';
-
-      return;
-    }
-
-    this.dataSource = new MatTableDataSource(this.sharedService.colorScheme.tokenColors);
-    this.dataSource.sort = this.sort;
-    if (this.sharedService.colorScheme.name !== undefined &&
-      this.sharedService.colorScheme.name !== null &&
-      this.sharedService.colorScheme.name !== ''
-    ) {
-      this.themeName = this.sharedService.colorScheme.name;
-    } else {
-      this.themeName = this.sharedService.colorScheme.fileName;
-    }
-    const tokenColorsLength = this.sharedService.colorScheme.tokenColors.length.toString();
-    this.status = `${tokenColorsLength} tokens, ${this.getColorsAmount()} unique colors`;
-  }
-
-  private getColorsAmount() {
-    const colorsInScheme = [];
-    for (const tokenColor of this.sharedService.colorScheme.tokenColors) {
-      const hex = tokenColor.color.toHexString();
-      if (colorsInScheme.indexOf(hex) === -1) {
-        colorsInScheme.push(hex);
-      }
-    }
-
-    return colorsInScheme.length;
   }
 
 }

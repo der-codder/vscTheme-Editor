@@ -34,6 +34,7 @@ import { ColorPickerComponent } from './components/color-picker/color-picker.com
 import { HexEditorComponent } from './components/color-picker/hex-editor/hex-editor.component';
 import { PickColorDirective } from './components/color-picker/hex-editor/pick-color.directive';
 import { OpenFromWebDialogComponent } from './components/header/open-from-web-dialog.component';
+import { EditorComponent } from './components/editor/editor.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { OpenFromWebDialogComponent } from './components/header/open-from-web-di
     ColorPickerComponent,
     HexEditorComponent,
     PickColorDirective,
-    OpenFromWebDialogComponent
+    OpenFromWebDialogComponent,
+    EditorComponent
   ],
   imports: [
     BrowserModule,

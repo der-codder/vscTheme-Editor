@@ -1,0 +1,25 @@
+<div *ngIf="!sharedService.colorSchemeLoading; else elseBlock">
+  <mat-toolbar>
+    <mat-toolbar-row>
+      <span>{{themeName}}</span>
+      <span class="spacer"></span>
+      <span>{{status}}</span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <div class="editor-container">
+    <div class="preview" style="background:lightpink">Preview</div>
+    <div class="editor">
+      <div class="wrapper mat-elevation-z8">
+        <app-color-scheme-table [tokenColors]="colorSchemeTokenColors"></app-color-scheme-table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #elseBlock>
+  <div class="cdk-overlay-backdrop cdk-overlay-dark-backdrop cdk-overlay-backdrop-showing">
+    <div class="spinner-container">
+      <mat-spinner></mat-spinner>
+    </div>
+  </div>
+</ng-template>
