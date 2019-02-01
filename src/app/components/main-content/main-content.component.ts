@@ -4,11 +4,11 @@ import { SharedService } from 'src/app/services/shared.service';
 import { TokenColor } from 'src/app/models/token-color';
 
 @Component({
-  selector: 'app-editor',
-  templateUrl: './editor.component.html',
-  styleUrls: ['./editor.component.scss']
+  selector: 'app-main-content',
+  templateUrl: './main-content.component.html',
+  styleUrls: ['./main-content.component.scss']
 })
-export class EditorComponent implements OnInit, OnDestroy {
+export class MainContentComponent implements OnInit, OnDestroy {
   colorSchemeTokenColors: TokenColor[];
   themeName: string;
   status: string;
