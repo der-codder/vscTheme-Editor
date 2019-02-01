@@ -1,15 +1,26 @@
 <div *ngIf="!sharedService.colorSchemeLoading; else elseBlock">
-  <mat-toolbar>
+  <!-- <mat-toolbar>
     <mat-toolbar-row>
       <span>{{themeName}}</span>
       <span class="spacer"></span>
       <span>{{status}}</span>
     </mat-toolbar-row>
-  </mat-toolbar>
+  </mat-toolbar> -->
+  <div class="summary-wrapper">
+    <div class="summary mat-elevation-z2">
+      <h3>{{themeName}}</h3>
+      <span class="spacer"></span>
+      <span>{{status}}</span>
+    </div>
+  </div>
   <div class="main-content-container">
-    <div class="preview" style="background:lightpink">Preview</div>
+    <div class="preview">
+      <div class="content-wrapper mat-elevation-z2">
+        <app-preview></app-preview>
+      </div>
+    </div>
     <div class="editor">
-      <div class="content-wrapper mat-elevation-z8">
+      <div class="content-wrapper mat-elevation-z2">
         <app-color-scheme-table [tokenColors]="colorSchemeTokenColors"></app-color-scheme-table>
       </div>
     </div>

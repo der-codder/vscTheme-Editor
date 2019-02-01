@@ -17,8 +17,10 @@ import {
   MatTabsModule,
   MatMenuModule,
   MatIconRegistry,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,
+  MatCardModule
 } from '@angular/material';
+import { MonacoEditorModule } from '@materia-ui/ngx-monaco-editor';
 
 import { AppComponent } from './app.component';
 import { ArrayToString } from './shared/array-to-string.pipe';
@@ -35,6 +37,7 @@ import { HexEditorComponent } from './components/color-picker/hex-editor/hex-edi
 import { PickColorDirective } from './components/color-picker/hex-editor/pick-color.directive';
 import { OpenFromWebDialogComponent } from './components/header/open-from-web-dialog.component';
 import { MainContentComponent } from './components/main-content/main-content.component';
+import { PreviewComponent } from './components/preview/preview.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +53,8 @@ import { MainContentComponent } from './components/main-content/main-content.com
     HexEditorComponent,
     PickColorDirective,
     OpenFromWebDialogComponent,
-    MainContentComponent
+    MainContentComponent,
+    PreviewComponent
   ],
   imports: [
     BrowserModule,
@@ -58,6 +62,7 @@ import { MainContentComponent } from './components/main-content/main-content.com
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MonacoEditorModule,
     MatToolbarModule,
     MatInputModule,
     MatButtonModule,
@@ -70,7 +75,8 @@ import { MainContentComponent } from './components/main-content/main-content.com
     MatSliderModule,
     MatTabsModule,
     MatMenuModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatCardModule
   ],
   providers: [
     SharedService,

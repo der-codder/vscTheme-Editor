@@ -1,6 +1,9 @@
+@import '~@angular/material/theming';
+
 .table-header {
   min-height: 64px;
   padding: 8px 24px 0;
+  background-color: map-get($mat-light-theme-background, 'card');
 }
 
 table {
@@ -36,9 +39,4 @@ td span {
   overflow: hidden;
   white-space: nowrap;
   max-width: 170px;
-}
-
-.container {
-  height: 100%;
-  overflow: auto;
 }
