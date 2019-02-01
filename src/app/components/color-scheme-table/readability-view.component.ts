@@ -54,11 +54,11 @@ const ReadabilityLevels: ReadabilityLevel[] = [
         [ngStyle]="{'color': readabilityLevel.color}"
         [matTooltip]="readabilityLevel.message">
       </mat-icon>
-      <h1>{{readability | number:'1.0-1'}}</h1>
+      <h2>{{readability | number:'1.0-1'}}</h2>
     </div>
     <ng-template #elseBlock>
       Readability:
-      <h1>
+      <h2>
         <mat-icon
           fontSet="mdi"
           [fontIcon]="readabilityLevel.icon"
@@ -66,12 +66,12 @@ const ReadabilityLevels: ReadabilityLevel[] = [
           [matTooltip]="readabilityLevel.message">
         </mat-icon>
         {{readability | number:'1.0-1'}}
-      </h1>
+      </h2>
       <span class="mat-hint">{{ readabilityLevel.message }}</span>
     </ng-template>
   `,
   styles: [`
-    h1 {
+    h2 {
       display: inline;
       margin-left: 10px;
     }
